@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Locat' Me</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+         <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
+    
+
+ 
+
+  <style type="text/css">
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBPKjx5wUPXLruFef4006pqVdUoaBzSlLE",
+    authDomain: "locatme-5d18e.firebaseapp.com",
+    databaseURL: "https://locatme-5d18e.firebaseio.com",
+    projectId: "locatme-5d18e",
+    storageBucket: "locatme-5d18e.appspot.com",
+    messagingSenderId: "790675064141"
+  };
+  firebase.initializeApp(config);
+</script>
+  <div id="map"></div>
+
+  <script src="https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js"></script>
+  
+  <script src="https://cdn.firebase.com/js/client/2.2.3/firebase.js""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.7.0/lodash.min.js"></script>
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFzdGVyYXB0ZSIsImEiOiJjajExaGZwNGwwMDF3MnhyeGk2azQ3Y2JxIn0.tLa3GGHHJRupgG_bm2z9hw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [-79.4512, 43.6568],
+    zoom: 13
+});
+
+map.addControl(new MapboxDirections({
+    accessToken: mapboxgl.accessToken
+}), 'top-left');
+</script>
+</body>
+</html>
